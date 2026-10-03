@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="id" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Redmi Note 10S - Link in Bio &amp; Gaming Specs</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            purple: '#7f00ff',
+                            magenta: '#e100ff',
+                            darkBg: '#090d16',
+                            cardBg: 'rgba(15, 23, 42, 0.75)',
+                            cardBorder: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' },
+                            '100%': { boxShadow: '0 0 35px rgba(225, 0, 255, 0.5)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-6px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-interactive {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-interactive:active {
+            transform: scale(0.98);
+        }
+
+        /* Ambient Backgrounds */
+        .ambient-glow-1 {
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .ambient-glow-2 {
+            background: radial-gradient(circle, rgba(225, 0, 255, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-brand-darkBg text-slate-100 font-sans antialiased min-h-screen flex justify-center selection:bg-brand-cyan selection:text-black">
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2 w-11/12 max-w-xs pointer-events-none"></div>
+
+    <!-- Background Glow Elements -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-10 -left-10 w-72 h-72 rounded-full ambient-glow-1 blur-2xl"></div>
+        <div class="absolute top-1/3 -right-10 w-72 h-72 rounded-full ambient-glow-2 blur-2xl"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 rounded-full ambient-glow-1 blur-3xl"></div>
+    </div>
+
+    <!-- Main Container (Mobile Max Width Window) -->
+    <main class="relative z-10 w-full max-w-md px-4 py-6 flex flex-col gap-5 min-h-screen">
+
+        <!-- Top Actions Bar -->
+        <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-widest text-brand-cyan flex items-center gap-1.5 bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">
+                <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
+                My Bio Specs
+            </span>
+            <button onclick="shareWebsite()" class="w-9 h-9 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-white active:scale-95 transition-all" title="Bagikan Web">
+                <i class="fa-solid fa-share-nodes text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Profile Header Section -->
+        <section class="glass-card rounded-3xl p-5 text-center relative overflow-hidden flex flex-col items-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-purple/10 to-transparent pointer-events-none"></div>
+            
+            <!-- Avatar with Glow -->
+            <div class="relative mb-3 animate-float">
+                <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-magenta blur-sm opacity-80 animate-pulse-glow"></div>
+                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&amp;fit=crop&amp;w=250&amp;q=80" alt="Avatar Player" class="relative w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-xl">
+                <div class="absolute bottom-0 right-0 w-6 h-6 bg-slate-900 rounded-full flex items-center justify-center border border-white/20 text-brand-cyan text-[10px]" title="Verified Device Owner">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <!-- Profile Info -->
+            <h1 class="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">onlykeyz8075&nbsp;<i class="fa-solid fa-gamepad text-brand-cyan text-sm"></i>
+            </h1>
+            <p class="text-xs text-slate-400 font-medium mb-3">@steve_craftindo • Content Creator</p>
+
+            <!-- Badges -->
+            <div class="flex flex-wrap justify-center gap-1.5 mb-2">
+                <span class="text-[10px] font-semibold text-slate-200 bg-slate-800/80 border border-slate-700/80 px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <i class="fa-solid fa-mobile-screen text-brand-cyan"></i> Redmi Note 10S
+                </span>
+                <span class="text-[10px] font-semibold text-slate-200 bg-slate-800/80 border border-slate-700/80 px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <i class="fa-solid fa-bolt text-amber-400"></i> Daily Driver
+                </span>
+                <span class="text-[10px] font-semibold text-slate-200 bg-slate-800/80 border border-slate-700/80 px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <i class="fa-solid fa-headset text-brand-magenta"></i> Gaming Test
+                </span>
+            </div>
+        </section>
+
+        <!-- Quick Action CTA Buttons (Bio Links) -->
+        <section class="flex flex-col gap-2.5">
+            <!-- Texture Pack Shop CTA -->
+            <a href="#shop" onclick="handleShopClick(event)" class="glass-card-interactive group p-3.5 rounded-2xl relative overflow-hidden flex items-center justify-between border-brand-cyan/30 hover:border-brand-cyan/60">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-cyan/20 via-brand-purple/20 to-brand-magenta/20 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                
+                <div class="relative z-10 flex items-center gap-3">
+                    
+                    <div>
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="relative z-10 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all pr-1">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- Support / Saweria CTA -->
+            <a href="https://sociabuzz.com/dvx_keyz/tribe" target="_blank" class="glass-card-interactive p-3 rounded-2xl flex items-center justify-between">Support buat tambah modal review device</a>
+
+            <!-- Social Media Buttons Row -->
+            <div class="grid grid-cols-2 gap-2.5">
+                <a href="https://youtube.com" target="_blank" class="glass-card-interactive p-3 rounded-2xl flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
+                        <i class="fa-brands fa-youtube text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">YouTube</h4>
+                        <p class="text-[10px] text-slate-400">Gameplay &amp; Review</p>
+                    </div>
+                </a>
+
+                <a href="https://www.tiktok.com/@only.keyzzz?is_from_webapp=1&amp;sender_device=pc" target="_blank" class="glass-card-interactive p-3 rounded-2xl flex items-center gap-2.5">tikto guejh</a>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs for Specs & Gaming -->
+        <section class="flex bg-slate-900/80 p-1 rounded-2xl border border-slate-800">
+            <button onclick="switchTab('tab-highlights')" id="btn-tab-highlights" class="tab-btn active flex-1 py-2 text-xs font-bold rounded-xl text-slate-950 bg-gradient-to-r from-brand-cyan to-brand-blue transition-all shadow-md">
+                <i class="fa-solid fa-star mr-1"></i> Spek Utama
+            </button>
+            <button onclick="switchTab('tab-gaming')" id="btn-tab-gaming" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all">
+                <i class="fa-solid fa-gamepad mr-1"></i> Test Gaming
+            </button>
+            <button onclick="switchTab('tab-fullspecs')" id="btn-tab-fullspecs" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all">
+                <i class="fa-solid fa-list-check mr-1"></i> Detail Fitur
+            </button>
+        </section>
+
+        <!-- Tab 1: Highlights Cards -->
+        <section id="tab-highlights" class="tab-content flex flex-col gap-3">
+            <div class="grid grid-cols-2 gap-2.5">
+                
+                <!-- Processor -->
+                <div class="glass-card p-3.5 rounded-2xl flex flex-col justify-between">
+                    <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-microchip text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-medium block uppercase tracking-wider">Chipset</span>
+                        <h3 class="text-xs font-bold text-white">Helio G95</h3>
+                        <p class="text-[10px] text-slate-400 mt-0.5">Octa-Core 2.05 GHz</p>
+                    </div>
+                </div>
+
+                <!-- Display -->
+                <div class="glass-card p-3.5 rounded-2xl flex flex-col justify-between">
+                    <div class="w-8 h-8 rounded-lg bg-brand-purple/10 text-brand-purple flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-mobile-screen-button text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-medium block uppercase tracking-wider">Layar</span>
+                        <h3 class="text-xs font-bold text-white">Super AMOLED</h3>
+                        <p class="text-[10px] text-slate-400 mt-0.5">6.43" FHD+ (1000 nits)</p>
+                    </div>
+                </div>
+
+                <!-- Memory -->
+                <div class="glass-card p-3.5 rounded-2xl flex flex-col justify-between">
+                    <div class="w-8 h-8 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-memory text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-medium block uppercase tracking-wider">RAM &amp; Storage</span>
+                        <h3 class="text-xs font-bold text-white">Up to 8GB / 128GB</h3>
+                        <p class="text-[10px] text-slate-400 mt-0.5">LPDDR4X + UFS 2.2</p>
+                    </div>
+                </div>
+
+                <!-- Battery -->
+                <div class="glass-card p-3.5 rounded-2xl flex flex-col justify-between">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-400/10 text-emerald-400 flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-charging-station text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-medium block uppercase tracking-wider">Baterai &amp; Fast Charge</span>
+                        <h3 class="text-xs font-bold text-white">5000 mAh</h3>
+                        <p class="text-[10px] text-emerald-400 font-semibold mt-0.5">33W Fast Charging</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Camera Highlight Banner -->
+            <div class="glass-card p-4 rounded-2xl flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-magenta text-white flex items-center justify-center text-xl shrink-0 shadow-lg shadow-brand-purple/30">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <div class="flex-1">
+                    <span class="text-[10px] text-brand-cyan font-bold uppercase tracking-wider">Kamera Utama Quad</span>
+                    <h3 class="text-sm font-bold text-white">64MP + 8MP Ultrawide</h3>
+                    <p class="text-[11px] text-slate-300">2MP Macro + 2MP Depth | Video 4K 30fps</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Gaming Performance -->
+        <section id="tab-gaming" class="tab-content hidden flex flex-col gap-3">
+            
+            <div class="bg-slate-900/60 p-3 rounded-2xl border border-slate-800 text-center mb-1">
+                <p class="text-[11px] text-slate-300">
+                    🔥 Tes performa dimainkan langsung di <span class="text-brand-cyan font-bold">MIUI Game Turbo</span> dengan kondisi suhu ruangan normal.
+                </p>
+            </div>
+
+            <!-- Game 1: MLBB -->
+            <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-amber-400 text-lg border border-slate-700">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Mobile Legends</h4>
+                        <span class="text-[10px] text-slate-400">Ultra Graphics + HFR</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-extrabold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full border border-emerald-400/20">
+                        60 FPS
+                    </span>
+                    <span class="block text-[9px] text-slate-400 mt-1">Sangat Smooth</span>
+                </div>
+            </div>
+
+            <!-- Game 2: PUBG -->
+            <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-brand-cyan text-lg border border-slate-700">
+                        <i class="fa-solid fa-crosshair"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">PUBG Mobile</h4>
+                        <span class="text-[10px] text-slate-400">Smooth - Ultra</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-extrabold text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-full border border-brand-cyan/20">
+                        40 - 60 FPS
+                    </span>
+                    <span class="block text-[9px] text-slate-400 mt-1">Stabil Rata-rata</span>
+                </div>
+            </div>
+
+            <!-- Game 3: Free Fire -->
+            <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-orange-400 text-lg border border-slate-700">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Free Fire MAX</h4>
+                        <span class="text-[10px] text-slate-400">Max Graphics + High FPS</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-extrabold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full border border-emerald-400/20">
+                        60 FPS
+                    </span>
+                    <span class="block text-[9px] text-slate-400 mt-1">Lancar Jaya</span>
+                </div>
+            </div>
+
+            <!-- Game 4: Minecraft -->
+            <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-emerald-400 text-lg border border-slate-700">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Minecraft PE</h4>
+                        <span class="text-[10px] text-slate-400">12 Chunks + Shader Ringan</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-extrabold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full border border-emerald-400/20">
+                        60 FPS
+                    </span>
+                    <span class="block text-[9px] text-slate-400 mt-1">No Lag</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Tab 3: Full Detailed Specs -->
+        <section id="tab-fullspecs" class="tab-content hidden flex flex-col gap-2.5">
+            
+            <div class="glass-card p-4 rounded-2xl space-y-3">
+                <div class="border-b border-slate-800 pb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-brand-cyan text-xs"></i>
+                    <h4 class="text-xs font-bold text-white">Sistem Operasi &amp; Antarmuka</h4>
+                </div>
+                <p class="text-xs text-slate-300">MIUI 12.5 berbasis Android 11 (Upgradable to Android 13 / MIUI 14)</p>
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl space-y-3">
+                <div class="border-b border-slate-800 pb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-volume-high text-brand-magenta text-xs"></i>
+                    <h4 class="text-xs font-bold text-white">Fitur Audio &amp; Speaker</h4>
+                </div>
+                <ul class="text-xs text-slate-300 space-y-1">
+                    <li>• Dual Stereo Speakers (Atas &amp; Bawah)</li>
+                    <li>• Sertifikasi Hi-Res Audio</li>
+                    <li>• Jack Headphone 3.5mm Masih Ada</li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-4 rounded-2xl space-y-3">
+                <div class="border-b border-slate-800 pb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-shield text-amber-400 text-xs"></i>
+                    <h4 class="text-xs font-bold text-white">Konektivitas &amp; Keamanan</h4>
+                </div>
+                <ul class="text-xs text-slate-300 space-y-1">
+                    <li>• NFC Multifungsi (Cek E-Money)</li>
+                    <li>• IR Blaster (Remote TV / AC)</li>
+                    <li>• Side-Mounted Fingerprint Sensor</li>
+                    <li>• Sertifikasi IP53 (Tahan Percikan Air &amp; Debu)</li>
+                    <li>• Dual SIM + Slot Dedicated microSD (Hingga 512GB)</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Quick Copy Specs Utility Button -->
+        <button onclick="copySpecsSummary()" class="w-full py-3 px-4 rounded-2xl glass-card-interactive border-brand-cyan/20 text-brand-cyan hover:text-white font-bold text-xs flex items-center justify-center gap-2">
+            <i class="fa-regular fa-copy"></i> Copy Ringkasan Spek ke Clipboard
+        </button>
+
+        <!-- Footer -->
+        <footer class="text-center py-4 mt-2 border-t border-slate-800/60">
+            <p class="text-[11px] text-slate-500">
+                Created for Bio TikTok • Xiaomi Redmi Note 10S
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Tab Switcher Function
+        function switchTab(tabId) {
+            // Hide all tabs
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Reset buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'text-slate-950', 'bg-gradient-to-r', 'from-brand-cyan', 'to-brand-blue', 'shadow-md');
+                btn.classList.add('text-slate-400');
+            });
+
+            // Activate current tab content
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Style active button
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.add('active', 'text-slate-950', 'bg-gradient-to-r', 'from-brand-cyan', 'to-brand-blue', 'shadow-md');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+        // Custom Toast Notification System
+        function showToast(message, icon = 'fa-check-circle') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-slate-900 border border-brand-cyan/40 text-white px-4 py-2.5 rounded-2xl shadow-2xl text-xs font-semibold flex items-center gap-2 transform -translate-y-4 opacity-0 transition-all duration-300';
+            
+            toast.innerHTML = `
+                <i class="fa-solid ${icon} text-brand-cyan text-sm"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('-translate-y-4', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+
+        // Copy Specs Summary to Clipboard
+        function copySpecsSummary() {
+            const specsText = `📱 REDMI NOTE 10S SPECS:
+• Chipset: MediaTek Helio G95 (12nm)
+• Layar: 6.43" Super AMOLED FHD+ (1000 nits)
+• Kamera: 64MP Quad Camera + 4K Video
+• Baterai: 5000 mAh + 33W Fast Charge
+• Fitur: NFC, Stereo Speakers, IP53, IR Blaster
+• MLBB: 60 FPS Ultra | PUBG: Smooth Ultra 60 FPS`;
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(specsText).then(() => {
+                    showToast("Spek ringkas berhasil dicopy!");
+                }).catch(() => {
+                    fallbackCopy(specsText);
+                });
+            } else {
+                fallbackCopy(specsText);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast("Spek ringkas berhasil dicopy!");
+            } catch (err) {
+                showToast("Gagal menyalin teks", "fa-xmark");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // Web Share API
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Redmi Note 10S Specs & Link Bio',
+                    text: 'Cek spesifikasi lengkap & tes gaming Redmi Note 10S di sini!',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                fallbackCopy(window.location.href);
+            }
+        }
+
+        // Handle Shop Click Placeholder Action
+        function handleShopClick(e) {
+            e.preventDefault();
+            showToast("Membuka Toko Texturepack Minecraft...", "fa-cube");
+            setTimeout(() => {
+                // Link ke website texturepack yang dibuat sebelumnya jika ada
+                window.location.href = "#";
+            }, 800);
+        }
+    </script>
+
+</body></html>
